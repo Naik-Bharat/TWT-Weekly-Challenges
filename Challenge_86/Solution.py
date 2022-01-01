@@ -5,10 +5,13 @@ class Game:
 		self.num_chances = num_chances
 		self.order = order
 		self.winner = None
+		self.play()
 
 
 	def play(self):
-		
+		for chance in range(self.num_chances):
+			self.board[self.order[chance] - 1] = self.player
+			self.change_player()
 
 		self.check_win()
 
@@ -50,10 +53,17 @@ class Game:
 def main():
 	n = int(input())    # number of test cases
 	for _ in range(n):
-		init_details = str(input())    # Tells which player is playing first 'X' or 'O'
+		init_details = str(input())    # Tells which player is playing first 'X' or 'O' and the number of chances in the game
 		init_details = init_details.split()
 		first_chance = init_details[0]
 		num_chances = int(init_details[1])
+		order = str(input())
+		order = [int(i) for i in order.split()]
+		game = Game(first_chance, num_chances, order)
+		if game.winner != None:
+			print(game.winner)
+		else:
+			print("Tie")
 
 
 if __name__=="__main__":
