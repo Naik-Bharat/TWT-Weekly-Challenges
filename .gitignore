@@ -1,1 +1,2 @@
-./pycache/*
+__pycache__/
+temp_solution_file.py
