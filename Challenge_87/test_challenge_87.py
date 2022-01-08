@@ -61,7 +61,7 @@ class Config:
     #   Relative path to this script file
     # SOLUTION_SRC_FILE_NAME = "Rust/C83_rust/src/main.rs"
     #   File in same folder as this script
-    SOLUTION_SRC_FILE_NAME = "to_submit_ch_87.py"
+    SOLUTION_SRC_FILE_NAME = "Solution.py"
 
     # Command to run your solution written in other language then Python
     # For compiled languages compile yourself and use compiled executable file name
