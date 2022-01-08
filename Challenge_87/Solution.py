@@ -1,9 +1,12 @@
-# This function returns the number (in base) that is equivalent to num (in decimal)
+# This function returns the number (in base) that is equivalent to num (in decimal), it returns False if number (in base) is not filled with 1'a
 def change_base(base : int, num : int):
 	remainder_stack = []    # stack of remainders when repeatedly divided by base
 
 	while num > 0:
 		remainder = num % base
+		# if number (in base) has anything other than 1
+		if remainder != 1:
+			return False
 		remainder_stack.append(remainder)
 		num = num // base
 
@@ -14,20 +17,12 @@ def change_base(base : int, num : int):
 	return ''.join(binary_digits)
 
 # This function will return the smallest base that will have the num (in decimal) filled with 1's (in output base)
+# The smallest base that will be filled with just 1's will have the maximum number of 1's
 def One(num : int):
-	# The smallest base that will have just 1's will have the maximum number of 1's
-	
 	# 'base' is the base that we are converting the decimal number into
 	for base in range(2, num):
 		num_in_base = change_base(base, num)    # num_in_base is the value of the number in 'base'
-		bool_output = True    # boolean if the number is filled with 1's
-		# checking if the 'num_in_base' is filled with 1's
-		for char in str(num_in_base):
-			if char != "1":
-				bool_output = False
-
-		# if num_in_base is filled with 1's
-		if bool_output == True:
+		if num_in_base != False:
 			break
 	
 	return base
