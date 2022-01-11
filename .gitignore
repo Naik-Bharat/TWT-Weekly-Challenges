@@ -1,2 +1,8 @@
+# cache created by python files
 __pycache__/
+
+# file created by test_challenge
 temp_solution_file.py
+
+# Solution file created by .cpp file
+Solution

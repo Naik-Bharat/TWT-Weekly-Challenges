@@ -61,7 +61,7 @@ class Config:
     #   Relative path to this script file
     # SOLUTION_SRC_FILE_NAME = "Rust/C83_rust/src/main.rs"
     #   File in same folder as this script
-    SOLUTION_SRC_FILE_NAME = "Solution.py"
+    SOLUTION_SRC_FILE_NAME = "Solution.cpp"
 
     # Command to run your solution written in other language then Python
     # For compiled languages compile yourself and use compiled executable file name
@@ -73,7 +73,7 @@ class Config:
     # OTHER_LANG_COMMAND = "/home/user/Dev/Rust/c83_rust/target/release/c83_rust"
     # OTHER_LANG_COMMAND = "d:/Dev/C_Sharp/c83_cs/bin/Debug/net6.0/c83_cs.exe"
     # OTHER_LANG_COMMAND = "java -cp Java/ c83_java.Main"
-    OTHER_LANG_COMMAND = ""
+    OTHER_LANG_COMMAND = "./Solution"
 
     # Name of file with inputs test cases (and output if SEP_INP_OUT_TESTCASE_FILE is False)
     # If test cases file is compressed, you don't need to extract it, just give name of
