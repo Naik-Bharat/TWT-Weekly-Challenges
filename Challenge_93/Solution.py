@@ -1,19 +1,23 @@
 # This function returns the minimum number of lights that should be fixed in order to get K lights fixed consecutively 
 def lights_required_fix(no_lights : int, no_lights_required_work : int, no_broken_lights : int, broken_lights_data : list):
 	# This list represents the data for all the lights, True for working lights, False for broken lights
-	lights_data = [True for _ in range(no_lights)]
+	lights_data = [True for _ in range(no_lights + 1)]
 	for _ in broken_lights_data:
-		lights_data[_ - 1] = False
+		lights_data[_] = False
 
 	# Minimum number of lights required to be fixed
 	min_lights_required = no_lights
-
-	# for every possible light queue, the starting ligths index
-	for light_index in range(no_lights - no_broken_lights):
-		# Number of lights to fix for this case if all lights need to be fixed in this queue
-		lights_to_fix = lights_data[light_index : light_index + no_lights_required_work].count(False)
-		if lights_to_fix < min_lights_required:
-			min_lights_required = lights_to_fix
+	
+	psum = [] # The number of broken lights before light i
+	for _ in range(no_lights + 1):
+		if psum == []:
+			psum.append(0)
+		elif lights_data[_] == False:
+			psum.append(psum[_ - 1] + 1)
+		else:
+			psum.append(psum[_ - 1])
+		if _ >= no_lights_required_work:
+			min_lights_required = min(min_lights_required, psum[_] - psum[_ - no_lights_required_work])
 
 	return min_lights_required
 
