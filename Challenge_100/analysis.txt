@@ -1,0 +1,4 @@
+Challenge 100 Analysis 
+This challenge is the first ever weekly challenge we had in this server, around 2 years ago!
+The task is to convert the year to its corresponding century.
+The formula is ceil(year / 100).
