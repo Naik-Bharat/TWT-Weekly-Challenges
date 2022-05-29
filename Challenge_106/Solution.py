@@ -4,8 +4,10 @@ def solve(length : int, num : int):
 	if (num > length * (length + 1) / 2) or (num == 0 and length > 2):
 		print("BAD INPUT")
 	# Specific case
-	elif num == 0 and length  == 2:
+	elif num == 0 and length == 2:
 		print("2 1")
+	elif num == 0 and length == 1:
+		print("BAD INPUT")
 	else:
 		# for every row
 		for row in range(1, length + 1):
